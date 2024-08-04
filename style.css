@@ -9,27 +9,14 @@
   -webkit-user-select: none;
 }
 
-.hidden {
-    display: none;
-}
-
-#loading {
-    color: #f00;
-    font-size: 1.2em;
-}
-
-#response-text {
-    margin-top: 1em;
-}
-
 
 /* Remove default outline */
-*:focus {
+:focus {
     outline: none;
 }
 
 /* For better accessibility, consider adding your own styles */
-*:focus-visible {
+:focus-visible {
     outline: 2px solid #f00; /* Example of custom focus style */
 }
 
