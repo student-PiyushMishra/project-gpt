@@ -8,6 +8,20 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
 }
+.hidden {
+    display: none;
+}
+
+#loading {
+    color: #f00;
+    font-size: 1.2em;
+}
+
+#response-text {
+    margin-top: 1em;
+}
+
+
 /* Remove default outline */
 *:focus {
     outline: none;
