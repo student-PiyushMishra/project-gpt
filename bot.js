@@ -11,32 +11,49 @@ prompt_field.addEventListener('click', function () {
 })
 
 send.addEventListener('click', function () {
-    let request;
-    if (input.value.trim() === "") {
-        alert('Empty Prompt! Please fill it to get response.')
-    }
-    else {
-        request = input.value
-        const genAI = new GoogleGenerativeAI(API_KEY);
-
-        async function run() {
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-            const prompt = request + ' . write in short!'
-
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            const text = response.text();
-            final_response.innerHTML = result;
+    let request = input.value.trim();
+    if (request === "") {
+        alert('Empty Prompt! Please fill it to get response.');
+    } else {
+        // Show loading message
+        document.getElementById('loading').classList.remove('hidden');
+        document.getElementById('response-text').textContent = ''; // Clear previous response
+        
+        // Simulate delay (e.g., 2 seconds)
+        setTimeout(async function () {
+            // Your bot interaction code
             const contactData = {
                 prompt: request,
-                response: final_response.innerHTML + "<br>",
+                response: final_response.textContent,
                 timestamp: new Date().toISOString()
             };
-            localStorage.setItem('contactData', JSON.stringify(contactData));
-        }
 
-        run();
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(contactData)
+                });
+
+                if (response.ok) {
+                    console.log('Contact data sent successfully.');
+                } else {
+                    console.error('Failed to send contact data.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+
+            // Replace with actual bot response retrieval
+            const botResponse = await getAIResponse(request);
+            
+            // Hide loading message
+            document.getElementById('loading').classList.add('hidden');
+            
+            // Display bot response
+            document.getElementById('response-text').textContent = botResponse;
+        }, 2000); // Adjust the delay time as needed
     }
-})
-
+});
