@@ -16,6 +16,10 @@ body {
   background-color: #0b111f;
 }
 
+::-webkit-scrollbar{
+    display: none;
+}
+
 .container {
   margin: 100px auto;
   background-color: #d6d6cc;
