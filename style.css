@@ -8,6 +8,16 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
 }
+/* Remove default outline */
+*:focus {
+    outline: none;
+}
+
+/* For better accessibility, consider adding your own styles */
+*:focus-visible {
+    outline: 2px solid #f00; /* Example of custom focus style */
+}
+
 
 html,
 body {
