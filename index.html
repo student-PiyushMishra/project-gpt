@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h2>GPT-Model 4o</h2>
+            <img src="./logo.png" alt="">
+        </div>
+        <div class="prompt">
+            <input type="text" placeholder="Connet with gpt..."><button><i class="ri-send-plane-2-fill"></i></button>
+        </div>
+        <div class="response">
+            
+        </div>
+    </div>
+    <script type="importmap">
+        {
+            "imports": {
+                "@google/generative-ai": "https://esm.run/@google/generative-ai"
+            }
+        }
+    </script>
+    <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+
+        const API_KEY = "AIzaSyDJt7xTCqcTBtnhDyhDIQluSbh31jGj_6c";
+        const genAI = new GoogleGenerativeAI(API_KEY);
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+        let input = document.querySelector('.prompt input');
+        let send = document.querySelector('.prompt button');
+        let final_response = document.querySelector('.response');
+
+        send.addEventListener('click', async function () {
+            let request = input.value.trim();
+            if (request === "") {
+                alert('Empty Prompt! Please fill it to get response.');
+            } else {
+                try {
+                    const prompt = request + ' . write in short!';
+                    const result = await model.generateContent(prompt);
+                    const response = await result.response.text();
+                    final_response.textContent = response;
+                } catch (error) {
+                    console.error('Error:', error);
+                    final_response.textContent = 'An error occurred while fetching the response.';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
