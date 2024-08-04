@@ -97,6 +97,9 @@ body {
     .container{
         width: 80vw;
     }
+  .title h2{
+    font-size:1rem;
+  }
     .title img{
         height: 50%;
     }
