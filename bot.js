@@ -12,6 +12,7 @@ prompt_field.addEventListener('click', function () {
     input.focus()
 })
 
+<<<<<<< HEAD
 // send.addEventListener('click', function () {
 //     let request;
 //     if (input.value.trim() === "") {
@@ -72,14 +73,44 @@ send.addEventListener('click', async function () {
                 timestamp: new Date().toISOString()
             };
             localStorage.setItem('contactData', JSON.stringify(contactData));
-        }
+=======
+send.addEventListener('click', async function () {
+    let request = input.value.trim();
+    if (request === "") {
+        alert('Empty Prompt! Please fill it to get response.');
+    } else {
+        const contactData = {
+            prompt: request,
+            response: final_response.textContent,
+            timestamp: new Date().toISOString()
+        };
 
-        run();
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(contactData)
+            });
+
+            if (response.ok) {
+                console.log('Contact data sent successfully.');
+            } else {
+                console.error('Failed to send contact data.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+>>>>>>> b967127a22b952b82a958b77274f1d90e49d9c93
+        }
     }
 });
+<<<<<<< HEAD
 
 copy.addEventListener('click',function(){
     let copied_text = final_response.innerText 
     navigator.clipboard.writeText(copied_text)
     alert('Text Copied!')
 })
+=======
+>>>>>>> b967127a22b952b82a958b77274f1d90e49d9c93
