@@ -16,8 +16,8 @@ body {
   background-color: #0b111f;
 }
 
-::-webkit-scrollbar{
-    display: none;
+::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -93,11 +93,25 @@ body {
   max-height: fit-content;
 }
 
-@media (max-width:900px) {
-    .container{
-        width: 50vw;
-    }
-    .title img{
-        height: 50%;
-    }
+@media (max-width: 900px) {
+  .container {
+    width: 50vw;
+  }
+  .title img {
+    height: 50%;
+  }
+  .copy{
+    font-size: small;
+  }
+}
+
+.copy {
+  justify-content: flex-end;
+  font-size: larger;
+  width: 100%;
+  color: orangered;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.5vw;
+  display: none;
 }

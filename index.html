@@ -20,6 +20,9 @@
         <div class="response">
             
         </div>
+        <div class="copy">
+            Copy<i class="ri-file-copy-fill"></i>
+        </div>
     </div>
     <script type="importmap">
         {
@@ -28,33 +31,6 @@
             }
         }
     </script>
-    <script type="module">
-        import { GoogleGenerativeAI } from "@google/generative-ai";
-
-        const API_KEY = "AIzaSyDJt7xTCqcTBtnhDyhDIQluSbh31jGj_6c";
-        const genAI = new GoogleGenerativeAI(API_KEY);
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-
-        let input = document.querySelector('.prompt input');
-        let send = document.querySelector('.prompt button');
-        let final_response = document.querySelector('.response');
-
-        send.addEventListener('click', async function () {
-            let request = input.value.trim();
-            if (request === "") {
-                alert('Empty Prompt! Please fill it to get response.');
-            } else {
-                try {
-                    const prompt = request + ' . write in short!';
-                    const result = await model.generateContent(prompt);
-                    const response = await result.response.text();
-                    final_response.textContent = response;
-                } catch (error) {
-                    console.error('Error:', error);
-                    final_response.textContent = 'An error occurred while fetching the response.';
-                }
-            }
-        });
-    </script>
+    <script type="module" src="bot.js"></script>
 </body>
 </html>
