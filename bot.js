@@ -30,16 +30,8 @@ send.addEventListener('click', async function () {
             console.log('Text:', text);
             console.log('Copy Element:', copy);
 
-            // Update the copy element
-            copy.style.display = 'flex';  // Use visibility for better control
+            copy.style.display = 'flex';
             final_response.innerHTML = text;
-
-            const contactData = {
-                prompt: request,
-                response: final_response.innerHTML + "<br>",
-                timestamp: new Date().toISOString()
-            };
-            localStorage.setItem('contactData', JSON.stringify(contactData));
         }
         run()
     }
