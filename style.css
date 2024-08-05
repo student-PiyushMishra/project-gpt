@@ -11,15 +11,22 @@
 
 
 /* Remove default outline */
-:focus {
+.prompt:focus {
     outline: none;
 }
 
 /* For better accessibility, consider adding your own styles */
-:focus-visible {
+.prompt:focus-visible {
     outline: 2px solid #f00; /* Example of custom focus style */
 }
 
+.prompt button:focus {
+    outline: none;
+}
+
+.prompt button:focus-visible {
+    outline: 2px solid #f00; /* Example of custom focus style */
+}
 
 html,
 body {
