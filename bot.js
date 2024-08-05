@@ -41,6 +41,7 @@ send.addEventListener('click', async function () {
             };
             localStorage.setItem('contactData', JSON.stringify(contactData));
         }
+        run()
     }
 })
 
