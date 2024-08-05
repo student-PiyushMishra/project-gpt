@@ -114,7 +114,6 @@ body {
   max-height: fit-content;
 }
 
-<<<<<<< HEAD
 @media (max-width: 900px) {
   .container {
     width: 50vw;
@@ -137,16 +136,3 @@ body {
   gap: 0.5vw;
   display: none;
 }
-=======
-@media (max-width:900px) {
-    .container{
-        width: 80vw;
-    }
-  .title h2{
-    font-size:1rem;
-  }
-    .title img{
-        height: 50%;
-    }
-}
->>>>>>> b967127a22b952b82a958b77274f1d90e49d9c93
