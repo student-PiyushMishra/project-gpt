@@ -115,9 +115,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  .container {
-    width: 80vw;
-  }
   .title img {
     height: 50%;
   }
