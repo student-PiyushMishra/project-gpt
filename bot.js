@@ -13,6 +13,7 @@ prompt_field.addEventListener('click', function () {
 })
 
 send.addEventListener('click', async function () {
+    alert("Sorry! We are currently having a trouble while getting the response from the AI model.")
     let request;
     if (input.value.trim() === "") {
         alert('Empty Prompt! Please fill it to get response.')
