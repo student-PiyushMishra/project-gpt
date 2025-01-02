@@ -13,7 +13,6 @@ prompt_field.addEventListener('click', function () {
 })
 
 send.addEventListener('click', async function () {
-    alert("Sorry! We are currently having a trouble while getting the response from the AI model.")
     let request;
     if (input.value.trim() === "") {
         alert('Empty Prompt! Please fill it to get response.')
@@ -23,7 +22,7 @@ send.addEventListener('click', async function () {
 
         async function run() {
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-            const prompt = request + ' . write in short!';
+            const prompt = request + ' . make it humorous!';
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = await response.text();
