@@ -22,7 +22,7 @@ send.addEventListener('click', async function () {
 
         async function run() {
             const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
-            const prompt = request + ' . make it humorous!';
+            const prompt = request + ' . make it humorous! but make it in 2 to 3 lines...';
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = await response.text();
