@@ -38,7 +38,7 @@ send.addEventListener('click', async function () {
 })
 
 window.addEventListener("keyup",async function(e){
-    if(e.key == "enter"){
+    if(e.key == "Enter"){
         let request;
     if (input.value.trim() === "") {
         alert('Empty Prompt! Please fill it to get response.')
