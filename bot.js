@@ -37,6 +37,33 @@ send.addEventListener('click', async function () {
     }
 })
 
+window.addEventListener("keyup",async function(e){
+    if(e.key == "enter"){
+        let request;
+    if (input.value.trim() === "") {
+        alert('Empty Prompt! Please fill it to get response.')
+    } else {
+        request = input.value;
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        async function run() {
+            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            const prompt = request + ' . make it humorous!';
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = await response.text();
+            console.log('Result:', result);
+            console.log('Text:', text);
+            console.log('Copy Element:', copy);
+
+            copy.style.display = 'flex';
+            final_response.innerHTML = text;
+        }
+        run()
+    }
+    }
+})
+
 copy.addEventListener('click',function(){
     let copied_text = final_response.innerText 
     navigator.clipboard.writeText(copied_text)
