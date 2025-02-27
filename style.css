@@ -137,10 +137,6 @@ body {
 }
 
 @media (max-width: 900px) {
-  .title img {
-    height: 50%;
-  }
-
   .copy {
     font-size: small;
   }
