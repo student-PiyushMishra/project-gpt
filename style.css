@@ -71,7 +71,8 @@ body {
   width: 70%;
   text-wrap: break-word;
   word-spacing: 4px;
-  letter-spacing: 0.4px;
+  letter-spacing: -0.4px;
+  font-family: "Syne";
 }
 
 .img{
@@ -139,6 +140,15 @@ body {
 @media (max-width: 900px) {
   .copy {
     font-size: small;
+  }
+  .prompt{
+    margin-top: 2rem;
+  }
+  .title h2{
+    font-size: larger;
+  }
+  .title .img{
+    height:150%;
   }
 }
 
